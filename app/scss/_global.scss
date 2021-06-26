@@ -1,9 +1,30 @@
 // Создали файл для глобальных стилей
 
+// ОБЩИЕ СТИЛИ
+
+html {
+	box-sizing: border-box; // позволяет менять способ расчета размеров элемента: ни padding, ни border не расширяют блок
+}
+*,
+*::after,
+*::before {
+	box-sizing: inherit; //Ключевое слово, которое сообщает, что необходимо наследовать значение свойства у родительского элемента.
+	//Результат будет заметен только в том случае, если у родителя указанное свойство установлено.
+}
+
 body {
 	font-family: "Fira Sans", sans-serif;
 	font-weight: 400;
 	font-size: 16px;
+	background-color: #171919;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+a {
+	display: inline-block; //делаем элемент строчно-блочным
+	text-decoration: none; //Отменяет подчеркивание
+	color: #fff;
 }
 
 ul,
@@ -12,22 +33,23 @@ li {
 	margin: 0;
 	padding: 0;
 }
-a {
-	display: inline-block; //делаем элемент строчно-блочным
-	text-decoration: none; //Отменяет подчеркивание
+
+// стили контейнера, ограничивающего контент
+.container {
+	min-width: 1920px;
+	margin: 0 auto;
 }
 
-.suptitle-left {
+.headline-left {
 	font-size: 22px;
 	line-height: 32px;
 	letter-spacing: 7.33333px;
-	text-transform: uppercase;
-	color: #ffffff;
 	opacity: 0.5;
 	padding-left: 103px;
 	position: relative;
 	display: inline-block; //делаем элемент строчно-блочным
 	&::before {
+		// полоска перед словом
 		content: "";
 		position: absolute;
 		width: 80px;
@@ -35,5 +57,49 @@ a {
 		background-color: #fff;
 		left: 0;
 		top: 50%;
+	}
+}
+
+.title {
+	span {
+		font-weight: 800;
+		font-size: 200px;
+		color: rgba(#fff, 0.02);
+		position: relative; // пишется для родителя (при позиционировании наследника)
+		display: inline-block; //делаем элемент строчно-блочным и сможем применим следующее свойство:
+		transform: translateX(-50px); // задает сдвиг элемента по оси X
+	}
+	h3 {
+		position: absolute; // пишется при позиционировани наследника по отношению к родителю)
+		// указываем координаты позиционирования
+		top: 0; // от верха блока родителя
+		right: -5px; // от правоо края блока родителя
+		margin: 0;
+		color: #fff;
+		font-size: 80px;
+		// сделаем линию над словом SURF
+		&::after {
+			content: ""; // обязательное свойство
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 80px;
+			height: 1px;
+			background-color: $green;
+		}
+	}
+}
+
+.subtitle {
+	display: inline-block;
+	text-align: right;
+
+	&__head {
+		font-weight: 800;
+		font-size: 40px;
+		padding-right: 10px;
+		span {
+			font-weight: 100;
+		}
 	}
 }

@@ -24,8 +24,6 @@
 	right: 80px;
 	bottom: 116px;
 	text-align: right; //Текст будет выровнен по правому краю
-	color: #fff;
-	text-transform: uppercase;
 }
 
 .slider-item__info-suptitle {
@@ -69,7 +67,6 @@
 	bottom: 36px;
 	max-width: 920px;
 	width: 100%;
-	color: #fff;
 	.slick-current {
 		.dots-box {
 			border-top: 4px solid $green; // цвет полоски меняется при переключении экранов главного слайдера
@@ -95,6 +92,7 @@
 	&__name {
 		font-weight: 300;
 		line-height: 19px;
+		text-transform: capitalize; // Только первая буква в слове большая
 	}
 }
 
@@ -106,15 +104,12 @@
 	border-right: 1px solid rgba(#fff, 0.25); // указали вертикальную черту бокового меню
 	height: 100vh;
 	text-align: center; // Текст будет выровнен по центру
-	//color: #fff;
 }
 
 .header__title {
 	font-weight: 800;
 	font-size: 200px;
 	line-height: 156px;
-	text-transform: uppercase;
-	color: #ffffff;
 	opacity: 0.07;
 	min-width: 467px;
 	position: absolute;
@@ -126,7 +121,6 @@
 .menu {
 	padding-top: 40px;
 	a {
-		color: #fff;
 		span {
 			display: block;
 			font-weight: 500;
@@ -135,6 +129,7 @@
 			letter-spacing: 3px;
 			padding-top: 6px;
 			margin-bottom: 20px;
+			text-transform: capitalize; // Только первая буква в слове большая
 		}
 	}
 }
@@ -160,13 +155,14 @@
 }
 
 .header__location {
-	display: inline-block;
+	display: inline-block; //делаем элемент строчно-блочным
 	font-weight: 300;
 	font-size: 12px;
 	line-height: 14px;
 	letter-spacing: 1.05px;
 	position: relative;
 	padding-left: 19px;
+	text-transform: capitalize; // Только первая буква в слове большая
 	&::before {
 		content: "";
 		position: absolute;
@@ -191,6 +187,7 @@
 	z-index: 3;
 }
 
+// анимация пути движения от точки к точке
 .line-animation {
 	stroke-dashoffset: 600;
 	stroke-dasharray: 600;
@@ -201,6 +198,28 @@
 	to {
 		stroke-dashoffset: 0;
 	}
+}
+
+// зададим общие стили для секции второго слайдера(экрана)
+.surf {
+	padding: 160px 0 210px;
+	background-image: url(../images/surf-bg.png); // прописали фоновую картинку и ниже задали ёё свйства:
+	background-position: right 200px;
+	background-repeat: no-repeat;
+	background-size: auto; // Фон будет иметь натуральный размер, такой, как реальный размер картинки фона
+}
+
+.surf__subtitle {
+	text-align: right; // Текст будет выровнен по правому краю
+	padding-right: 80px;
+	margin-top: -80px;
+}
+
+.surf-box {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 750px; // Масштабирует картинку так, чтобы она накрыла собой весь блок с сохранением пропорций
 }
 
 @import "media";
