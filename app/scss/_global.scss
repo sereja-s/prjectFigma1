@@ -103,3 +103,37 @@ li {
 		}
 	}
 }
+
+.btn {
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 36px;
+	span {
+		background-color: $green;
+		padding: 17px 57px 15px 17px;
+		display: inline-block;
+		margin-left: 19px;
+		position: relative;
+		&::before {
+			// прописали полоску перед кнопкой на слайде (картинке) 2-го экрана
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 1px;
+			background-color: #fff;
+			top: 50%;
+			left: -10px;
+		}
+		&::after {
+			// прописали полоску после кнопки на слайде(картинке) 2-го экрана
+			content: "";
+			position: absolute;
+			width: 25px;
+			height: 21px;
+			background-image: url(../images/arrows-right.svg);
+			top: 50%;
+			right: 17px;
+			transform: translateY(-50%);
+		}
+	}
+}
