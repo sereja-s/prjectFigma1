@@ -61,7 +61,7 @@
 	right: 125px;
 }
 
-.slider-dots {
+.slider-dotshead {
 	position: absolute;
 	right: 50px;
 	bottom: 36px;
@@ -200,7 +200,7 @@
 
 // зададим общие стили для секции второго слайдера(экрана)
 .surf {
-	padding: 160px 0 210px;
+	padding: 160px 0 120px;
 	background-image: url(../images/surf-bg.png); // прописали фоновую картинку и ниже задали ёё свйства:
 	background-position: right 200px;
 	background-repeat: no-repeat;
@@ -220,6 +220,31 @@
 		top: 50px;
 		opacity: 0.5;
 	}
+
+	// реализуем смещение картинок(слайдов): каждого 4-го, начиная с 1-го
+	.slick-slide:nth-child(4n + 1) {
+		.surf-box {
+			margin-top: 32px;
+		}
+	}
+
+	// реализуем смещение картинок(слайдов): каждого 4-го, начиная с 3-го
+	.slick-slide:nth-child(4n + 3) {
+		.surf-box {
+			margin-top: 89px;
+		}
+	}
+	// запишем условвие: кнопка видна только у активного слайда(картинки)
+	.slick-current {
+		.surf-box__inner-btn {
+			display: block;
+		}
+
+		// условие: активный слайд(картинка) становится ярче (имеет другую прозрачность)
+		.surf-box__inner {
+			background: rgba(#1c2121, 0.3);
+		}
+	}
 }
 
 .surf-box {
@@ -230,6 +255,16 @@
 		min-height: 750px; // Масштабирует картинку так, чтобы она накрыла собой весь блок с сохранением пропорций
 		background: rgba(#1c2121, 0.85);
 		position: relative;
+		transition: all 0.5s;
+
+		// при наведении слайд(картинка) осветляется и проявляется кнопка
+		&:hover {
+			background: rgba(#1c2121, 0.5);
+
+			.surf-box__inner-btn {
+				display: block;
+			}
+		}
 	}
 }
 
@@ -251,7 +286,7 @@
 	bottom: 80px;
 	width: 0;
 	height: 0;
-	white-space: nowrap; //Запрещает тексту переносится на другую строку
+	white-space: nowrap; // Запрещает тексту переносится на другую строку
 	span {
 		font-weight: 100;
 	}
@@ -263,6 +298,7 @@
 	text-align: center;
 	left: 0;
 	right: 0;
+	display: none; // кнопка не видна пока её слайд(картинка) не активна
 }
 
 @import "media";
