@@ -301,4 +301,184 @@
 	display: none; // кнопка не видна пока её слайд(картинка) не активна
 }
 
+.slider-map {
+	// пропишем свойства картинки-карта
+	max-width: 1200px;
+	min-height: 635px;
+	background-image: url(../images/world-map-dots.png);
+	background-repeat: no-repeat;
+	background-size: cover; //Масштабирует картинку (так, чтобы она накрыла собой весь блок с сохранением пропорций)
+	background-position: center;
+	margin: 0 auto;
+	.slick-list {
+		// для блока в котором расположены точки на карте (как у картинки-карты)
+		// теперь сможем задавать координаты точек, относительно карты
+		min-height: 635px;
+	}
+	.slick-current {
+		.slider-dots__content {
+			display: block; // табличка с контентом, появится для того элемента, который выделен (щелчком на точку или стрелку)
+			width: 285px; // Размеры таблички
+			padding: 31px 28px 0 32px; // поля в табличке
+		}
+	}
+}
+
+.slider-dots__content-row {
+	// пропишем свойства для содержимого таблички (расположение строчек)
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 30px;
+}
+
+.slider-dots__content-item {
+	// свойства для картинок в табличке
+	text-align: center;
+	img {
+		margin-bottom: 10px;
+	}
+}
+
+.slider-dots__content-number {
+	// свойства для чисел в табличке
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 23px;
+}
+
+.slider-dots__content-name {
+	// свойства для текста в табличке
+	font-weight: 300;
+	font-size: 10px;
+	line-height: 12px;
+}
+
+.slider-dots__content-title {
+	font-weight: 800; // стили для заголовка в табличке
+	font-size: 18px;
+	line-height: 26px;
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	position: relative;
+	&::before {
+		content: ""; // позиционировали и раскрасили полосочку в табличке
+		position: absolute;
+		background-color: $green;
+		width: 80px;
+		height: 1px;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.slider-dots__content-subtitle {
+	font-size: 16px; // стили для позаголовка в табличке
+	line-height: 19px;
+	text-transform: capitalize;
+}
+
+.slider-dots__content-link {
+	padding-top: 4px;
+}
+.slider-dots__circle {
+	// прорисуем точки на карте
+	width: 23px;
+	height: 23px;
+	background-color: $green;
+	border-radius: 50%;
+	cursor: pointer; // курсор меняет вид при наведении на точку на карте
+}
+
+.slider-dots__content {
+	display: none; // контент в табличке не виден, пока не активировали точку на карте
+	background: rgba(#000, 0.4); // далее: сделали фон
+	border-radius: 20px; //и скруглили углы
+	position: absolute;
+	bottom: 35px;
+	transform: translateX(-50%);
+	&::before {
+		content: ""; // прописали треугольник, прилегающий к точке
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-bottom: 20px solid $green;
+		border-left: 12px solid transparent;
+		border-right: 12px solid transparent;
+		bottom: -21px;
+		left: 50%;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+}
+
+.slider-dots {
+	position: relative;
+}
+
+// задаём координаты точек на карте
+.slider-dots--1 {
+	top: 335px;
+	left: 0;
+	.slider-dots__content {
+		transform: translateX(0); //сместили табличку для 1-й точки от среднего положения(вправо)Что бы не обрезало
+		&::before {
+			left: 0;
+		}
+	}
+}
+.slider-dots--2 {
+	top: 270px;
+	left: 0;
+	.slider-dots__circle {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			background-image: url(../images/mini-marker.png);
+			width: 14px;
+			height: 17px;
+			background-size: cover; //Масштабирует картинку (так, чтобы она накрыла собой весь блок с сохранением пропорций)
+			top: -25px;
+			right: -15px;
+		}
+	}
+}
+.slider-dots--3 {
+	top: 330px;
+	left: 25px;
+}
+.slider-dots--4 {
+	top: 470px;
+	left: -25px;
+	.slider-dots__content {
+		transform: translateX(-1%); //сместили табличку для 4-й точки от среднего положения(вправо)
+		&::before {
+			left: 0;
+		}
+	}
+}
+.slider-dots--5 {
+	top: 230px;
+	left: -65px;
+}
+.slider-dots--6 {
+	top: 550px;
+	left: -120px;
+}
+.slider-dots--7 {
+	top: 375px;
+	left: -95px;
+}
+.slider-dots--8 {
+	top: 470px;
+	left: 35px;
+	.slider-dots__content {
+		transform: translateX(-260px); //сместили табличку для 8-й точки от среднего положения(влево)Что бы не обрезало
+		&::before {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
 @import "media";
