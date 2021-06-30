@@ -170,10 +170,85 @@ li {
 }
 
 .surf,
-.travel {
+.holder {
 	padding: 160px 0 120px;
 }
 
-.travel {
+.holder {
 	padding-bottom: 265px;
+	margin-bottom: 35px;
+}
+
+// Стили для кастомизации счётчиков на 4-ом экране
+// ( код с сайта: https://codepen.io/komarovdesign/pen/PPRbgb )
+.quantity {
+	display: inline-block; // Строчно-блочный элемент
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+// ОБЩИЕ СТИЛИ ДЛЯ СЧЁТЧИКОВ НОЧЕЙ И ПОСЕТИТЕЛЕЙ ГОСТИНИЦЫ
+.quantity input {
+	width: 45px;
+	height: 42px;
+	display: block;
+	border: none;
+	background-color: transparent; //прозрачный
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 36px;
+	color: #fff;
+}
+
+.quantity input:focus {
+	outline: 0;
+}
+
+.quantity-nav {
+	float: left;
+	position: static; // изменяем положение плюса и минуса на 4-ом экране
+	height: 42px;
+}
+
+// ОБЩИЕ СТИЛИ ДЛЯ КНОПОК + И -
+.quantity-button {
+	position: relative;
+	cursor: pointer;
+	width: 20px; // разместили кнопки в блоке 20 на 20
+	height: 20px;
+	display: flex; // устанавливает элемент как блочный, а его потомки станут flex элементами
+	// зададим выравнивание элементов вдоль поперечной оси (применяется к родительскому элементу для flex блоков)
+	align-items: center;
+	// зададим выравнивание элементов вдоль главной оси (применяется к родительскому элементу для flex блоков)
+	justify-content: center;
+	top: 55px;
+}
+
+// стили для плюса на 4-ом экране
+.quantity-button.quantity-up {
+	position: absolute;
+	right: 0;
+}
+
+// стили для минуса на 4-ом экране
+.quantity-button.quantity-down {
+	position: absolute;
+	right: 45px;
+}
+
+.star-list {
+	li {
+		display: inline-block;
+		& + li {
+			margin-left: -25px;
+		}
+	}
 }

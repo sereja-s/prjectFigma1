@@ -480,8 +480,11 @@
 	}
 }
 
-.travel {
+.holder {
 	background-image: url(../images/travel-bg.png);
+	&.sleep {
+		background-image: url(../images/frangipani.png);
+	}
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	.slider-arrows {
@@ -490,7 +493,7 @@
 	}
 }
 
-.travel-slider {
+.holder-slider {
 	&__head {
 		background-repeat: no-repeat;
 		background-position: top left;
@@ -502,14 +505,27 @@
 		min-height: 320px;
 		background-repeat: no-repeat;
 		background-position: right center;
+		background-size: contain; // Масштабирует картинку так, чтобы она целиком влезла в блок с сохранением пропорций
 		.descr__head {
 			position: relative;
-			padding-right: 78px;
+			padding-right: 68px;
+			&.descr__head-sleep {
+				padding-right: 215px;
+			}
 			img {
 				// распрложение маленкой картинки правее от описания(3-й экран)
 				position: absolute;
 				right: 0;
 				top: 0;
+			}
+			.holder__star-list {
+				// распрложение маленкой картинки (звёздочки) правее от описания(4-й экран)
+				position: absolute;
+				right: 0;
+				top: 0;
+				img {
+					position: static;
+				}
 			}
 		}
 	}
@@ -522,18 +538,18 @@
 	}
 }
 
-.travel-slider__info {
+.holder-slider__info {
 	display: flex;
 	justify-content: space-around; // задает выравнивание элементов вдоль главной оси
 }
 
-.travel-slider__info-item {
+.holder-slider__info-item {
 	min-height: 200px;
 	margin-bottom: 66px;
 	position: relative;
 }
 
-.travel-slider__info-subtitle {
+.holder-slider__info-subtitle {
 	position: absolute;
 	font-size: 18px;
 	line-height: 22px;
@@ -549,13 +565,13 @@
 	white-space: nowrap;
 }
 
-.travel-slider__info-title {
+.holder-slider__info-title {
 	font-weight: 800;
 	font-size: 40px;
 	line-height: 36px;
 	padding-left: 40px;
 	position: relative;
-	span {
+	.holder-pricing__span {
 		font-size: 14px;
 		line-height: 36px;
 		font-weight: 400;
@@ -567,6 +583,95 @@
 		bottom: -25px;
 		right: 0;
 	}
+}
+
+.shop {
+	background-image: url(../images/shop-bg.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.shop__slider {
+	padding-left: 132px;
+}
+
+.shop__slider-inner {
+	display: flex;
+}
+
+.shop__slider-info {
+	max-width: 480px;
+	width: 100%;
+	margin-right: 40px;
+	padding-top: 150px;
+}
+
+.descr__head-shop {
+	max-width: 340px;
+	margin-bottom: 47px;
+}
+
+.shop__star-list {
+	margin-left: -9px;
+}
+
+.shop__slider-price {
+	font-weight: 800;
+	font-size: 32px;
+	line-height: 40px;
+	margin-bottom: 6px;
+	sup {
+		font-size: 18px;
+		padding-left: 2px;
+	}
+}
+
+.shop__slider-content {
+	padding-left: 170px;
+	display: flex;
+	align-items: flex-end; // Блоки прижаты к концу поперечной оси
+}
+
+.shop__extras {
+	padding-left: 150px;
+}
+
+.shop__extras-inner {
+	display: flex;
+}
+
+.shop__extras-title {
+	font-weight: 800;
+	font-size: 28px;
+	line-height: 40px;
+	margin-bottom: 25px;
+}
+
+.shop__extras-box {
+	text-align: center;
+	margin-right: 57px;
+}
+
+.shop__extras-img {
+	min-height: 105px;
+	display: flex;
+	justify-content: center; // Блоки стоят по центру главной оси.
+	align-items: center;
+	margin-bottom: 35px;
+}
+
+.shop__extras-name {
+	font-size: 18px;
+	line-height: 22px;
+	opacity: 0.5;
+	letter-spacing: 8px;
+	margin-bottom: 16px;
+}
+
+.shop__extras-price {
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 40px;
 }
 
 @import "media";
