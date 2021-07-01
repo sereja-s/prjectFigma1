@@ -34,8 +34,8 @@ $(function () {
 		focusOnSelect: true // при щелчке в табличке находит нужный слайд(картинку)
 	});
 
-	// работа стрелочек (лево-право) на третьем экране
-	$('.holder__slider').slick({
+	// работа стрелочек (лево-право) на третьем и пятом экране  
+	$('.holder__slider, .shop__slider').slick({
 		infinite: true,
 		fade: true,
 		prevArrow: '<img class="slider-arrows slider-arrows__left" src="images/arrows-left.svg" alt="">',
@@ -92,6 +92,11 @@ $(function () {
 	let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests');
 
 	$('.summ').html('$' + summ);
+
+	// условие (при клике на кружке (ссылка активна) плюс превращается в минус)
+	$('.surfboard-box__circle').on('click', function () {
+		$(this).toggleClass('active') // класс добавляет активной ссылке: класс active
+	});
 
 
 

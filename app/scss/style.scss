@@ -589,6 +589,9 @@
 	background-image: url(../images/shop-bg.png);
 	background-repeat: no-repeat;
 	background-position: right center;
+	.slider-arrows {
+		opacity: 0.45; //приглушили цвет стрелок (право-лево)
+	}
 }
 
 .shop__slider {
@@ -619,7 +622,7 @@
 	font-weight: 800;
 	font-size: 32px;
 	line-height: 40px;
-	margin-bottom: 6px;
+	margin-bottom: 64px;
 	sup {
 		font-size: 18px;
 		padding-left: 2px;
@@ -655,8 +658,8 @@
 .shop__extras-img {
 	min-height: 105px;
 	display: flex;
-	justify-content: center; // Блоки стоят по центру главной оси.
-	align-items: center;
+	justify-content: center; // Блоки стоят по центру главной оси
+	align-items: center; // Блоки стоят по центру поперечной оси
 	margin-bottom: 35px;
 }
 
@@ -672,6 +675,134 @@
 	font-weight: 800;
 	font-size: 18px;
 	line-height: 40px;
+}
+
+.surfboard {
+	position: relative;
+}
+
+.surfboard-box {
+	position: absolute;
+}
+
+// координаты всех кружков на доске для серфинга (5-й экран)
+.surfboard__position--1 {
+	right: 40px;
+	top: 215px;
+}
+
+.surfboard__position--2 {
+	left: -6px;
+	top: 313px;
+}
+
+.surfboard__position--3 {
+	bottom: 70px;
+	left: 52px;
+	// условие размещения надписи(контента) и полоски в другую сторону для 3-его кружка
+	.surfboard-box__content {
+		padding-right: 104px;
+		padding-left: 0px;
+		// позиционируем надпись и полоску относительно кружка
+		top: -15px;
+		left: -390px;
+		&::before {
+			// полоска после слова
+			content: "";
+			position: absolute;
+			width: 80px;
+			height: 1px;
+			background-color: #fff;
+			right: -15px;
+			left: auto;
+			top: 50%;
+		}
+	}
+}
+
+.surfboard-box__circle {
+	// свойства кружка на доске (5-й экран)
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	position: relative;
+	background-color: #fff;
+	cursor: pointer;
+	&.active {
+		// условие если был щелчёк по +, то ссылка активна (превращается в - )
+		.circle-row {
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+	}
+}
+
+.circle-row {
+	// пропишем минус для кружка
+	background-color: green;
+	position: absolute;
+	width: 12px;
+	height: 2px;
+	top: 50%; // позиционируем минус по центру
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(0deg); // Функция translate задает сдвиг элемента по оси X и оси Y
+	// Используется совместно со свойством transform. Значением свойства служат любые единицы для размера.
+	// + задаём поворот в градусах
+	& + .circle-row {
+		// таким свойством добавляем вертикальную полосу (получем плюс)
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+}
+
+// условие: если первый класс(кружёк) активен, то соседний класс(контент) становится видимым (появится полоска и надпись)
+.surfboard-box__circle.active + .surfboard-box__content {
+	display: block;
+}
+
+.surfboard-box__content {
+	display: none; // если кнопка (кружёк) не активна, надпись и полоска не видны
+	position: absolute;
+	width: 359px;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: 800;
+	padding-left: 104px;
+	// позиционируем надпись и полоску относительно кружка
+	top: -15px;
+	left: 30px;
+	&::before {
+		// полоска после слова
+		content: "";
+		position: absolute;
+		width: 80px;
+		height: 1px;
+		background-color: #fff;
+		left: 0;
+		top: 50%;
+	}
+}
+
+.footer {
+	text-align: center;
+	padding: 150px 0 34px;
+	.btn {
+		// затёрли стрелку на кнопке футера
+		span {
+			padding: 17px;
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+.footer__copy {
+	padding-top: 27px;
+	font-size: 30px;
+	line-height: 14px;
+	letter-spacing: 1.05px;
+	opacity: 0.5;
+	font-weight: 300;
+	text-transform: none;
 }
 
 @import "media";
