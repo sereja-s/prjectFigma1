@@ -1,6 +1,7 @@
 $(function () {
 
 	// работа стрелочек (лево-право)
+
 	$('.header__slider').slick({
 		infinite: true,
 		fade: true,
@@ -10,6 +11,7 @@ $(function () {
 	});
 
 	// лниии(дотсы) снизу 1-го экрана окрашиваются в соответствии с наименованием на экране
+
 	$('.slider-dotshead').slick({
 		slidesToShow: 4,
 		slidesToScroll: 4,
@@ -17,6 +19,7 @@ $(function () {
 	});
 
 	// работа слайдов-картинок 2-го экрана и стрелочки (лево-право)
+
 	$('.surf-slider').slick({
 		slidesToShow: 4,
 		slidesToScroll: 1,
@@ -26,6 +29,7 @@ $(function () {
 	});
 
 	// работа слайдов (точек и таблички) на карте
+
 	$('.slider-map').slick({
 		slidesToShow: 8,
 		slidesToScroll: 1,
@@ -34,7 +38,8 @@ $(function () {
 		focusOnSelect: true // при щелчке в табличке находит нужный слайд(картинку)
 	});
 
-	// работа стрелочек (лево-право) на третьем и пятом экране  
+	// работа стрелочек (лево-право) на третьем и пятом экране 
+
 	$('.holder__slider, .shop__slider').slick({
 		infinite: true,
 		fade: true,
@@ -46,6 +51,7 @@ $(function () {
 	// ( код с сайта: https://codepen.io/komarovdesign/pen/PPRbgb )
 
 	// прописали картинки + и - в коде html
+
 	$('<div class="quantity-nav"><div class="quantity-button quantity-up"><img src="images/plus.svg" alt=""></div><div class="quantity-button quantity-down"><img src="images/minus.svg" alt=""></div></div>').insertAfter('.quantity input');
 	$('.quantity').each(function () {
 		var spinner = $(this),
@@ -94,11 +100,16 @@ $(function () {
 	$('.summ').html('$' + summ);
 
 	// условие (при клике на кружке (ссылка активна) плюс превращается в минус)
+
 	$('.surfboard-box__circle').on('click', function () {
 		$(this).toggleClass('active') // класс добавляет активной ссылке: класс active
 	});
 
+	// При щелчке на кнопке МЕНЮ будет появляться строчка с кнопками (изображениями меню)
 
+	$('.menu-btn').on('click', function () {
+		$('.menu').toggleClass('active') // при клике, к МЕНЮ добавляется класс АКТИВ
+	});
 
 
 

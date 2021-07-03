@@ -32,6 +32,10 @@
 	.header__arrows {
 		left: 130px;
 	}
+
+	.surf-box__inner {
+		min-height: 650px;
+	}
 }
 
 @media (max-width: 1366px) {
@@ -45,6 +49,7 @@
 	.menu {
 		padding-top: 0;
 	}
+
 	.menu__list {
 		text-align: center;
 		li {
@@ -96,10 +101,39 @@
 	}
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
 	.header__arrows {
 		left: 35px;
 		bottom: 110px;
+	}
+
+	.menu {
+		z-index: 22;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: translateX(-100%);
+		justify-content: center;
+		align-items: center;
+		padding-top: 0;
+		transition: all 1.5s;
+		display: flex;
+		// пропишем условие появления меню на экране: кнопка активна когда к классу МЕНЮ добавляется класс АКТИВ
+		&.active {
+			transform: translateX(0);
+		}
+	}
+
+	.menu-btn {
+		display: flex;
+	}
+
+	.logo {
+		img {
+			width: 85px;
+		}
 	}
 
 	.header__search {
@@ -137,4 +171,61 @@
 		font-weight: 800;
 		margin-bottom: 20px;
 	}
+
+	.slider-dotshead {
+		right: 0px;
+		left: 37px;
+		margin: 0 auto;
+		bottom: 5px;
+	}
+
+	.dots-box {
+		width: 115px;
+	}
+
+	.dots-box__number {
+		font-size: 18px;
+	}
+
+	.dots-box__name {
+		line-height: 18px;
+	}
 }
+
+@media (max-width: 479px) {
+	.header__aside {
+		display: block;
+		text-align: center;
+		padding-right: 0;
+		height: 100vx;
+	}
+
+	.menu.active {
+		background-color: #0ab88f;
+	}
+
+	.header__search {
+		padding: 15px 0 5px;
+	}
+
+	.header__date {
+		padding: 0;
+		font-size: 50px;
+		line-height: 45px;
+		span {
+			font-size: 12px;
+		}
+	}
+
+	.header__location {
+		margin-top: 0;
+	}
+
+	.header__title {
+		display: none;
+	}
+
+	.slider-dotshead {
+		display: none;
+	}
+} ;
